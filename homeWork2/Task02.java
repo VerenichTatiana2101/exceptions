@@ -13,23 +13,19 @@ public class Task02 {
          * }
          */
 
-        int[] intArray = new int[7];
-        catchMethod(intArray, 0, 8);
-
+        int[] intArray = {3, 5, 7, 4, 6, 12};
+        catchMethod(intArray, 2, 5);
 
     }
 
-    public static void catchMethod(int[] intArray, int d, int index){
+    public static void catchMethod(int[] intArray, int d, int index) {
+        if (d == 0)
+            throw new ArithmeticException("Делить на ноль нельзя");
         try {
             double catchedRes1 = intArray[index] / d;
-            System.out.println("catchedRes1 = " + catchedRes1);
-        } catch (ArithmeticException e) {
-            System.out.println("Catching exception: " + e);
+        System.out.println("catchedRes1 = " + catchedRes1);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Ошибка индексации массива: " + e);
-        } finally {
-            System.out.println("я выполнился");
-        }
-        System.out.println(" я жив! ");
-    } 
+            System.out.println("Выход за пределы массива");
+        }   
+    }
 }
